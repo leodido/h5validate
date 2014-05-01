@@ -6,6 +6,9 @@ Shim repository for the [h5validate](https://github.com/dilvie/h5Validate) jQuer
 Package Managers
 ----------------
 
-* [Component](https://github.com/component/component): **components/h5validate**
-* [Composer](http://packagist.org/packages/components/angular.js): **components/h5validate**
+* [Component](https://github.com/component/component)
+    - **components/h5validate**
+    
+* [Composer](http://packagist.org/packages/components/angular.js)
+    - **components/h5validate**
 
