@@ -22,8 +22,11 @@
                 RODom: false,
 
                 // HTML5-compatible validation pattern library that can be extended and/or overriden.
-                patternLibrary : { //** TODO: Test the new regex patterns. Should I apply these to the new input types?
+                patternLibrary : {
+                    //** TODO: Test the new regex patterns. Should I apply these to the new input types?
+                    
                     // **TODO: password
+                    
                     phone: /([\+][0-9]{1,3}([ \.\-])?)?([\(][0-9]{1,6}[\)])?([0-9A-Za-z \.\-]{1,32})(([A-Za-z \:]{1,11})?[0-9]{1,4}?)/,
 
                     // Shamelessly lifted from Scott Gonzalez via the Bassistance Validation plugin http://projects.scottsplayground.com/email_address_validation/
@@ -39,7 +42,9 @@
                     dateISO: /\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2}/,
 
                     alpha: /[a-zA-Z]+/,
+                    
                     alphaNumeric: /\w+/,
+                    
                     integer: /-?\d+/
                 },
 
@@ -143,7 +148,7 @@
             }
         },
 
-    // Aliases
+        // Aliases
         defaults = h5.defaults,
         patternLibrary = defaults.patternLibrary,
 
