@@ -1,0 +1,37 @@
+{
+    "name": "components/h5validate",
+    "description": "jQuery JavaScript Library",
+    "type": "component",
+    "homepage": "http://github.com/leodido/h5validate",
+    "license": "MIT",
+    "support": {
+        "wiki": "http://ericleads.com/h5validate/",
+        "source": "http://github.com/dilvie/h5Validate"
+    },
+    "authors": [
+        {
+            "name": "Eric Hamilton",
+            "homepage": "http://ericleads.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Leo Di Donato",
+            "email": "leodidonato@gmail.com",
+            "homepage": "http://github.com/leodido",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "robloach/component-installer": "*"
+    },
+    "extra": {
+        "component": {
+            "scripts": [
+                "jquery.h5validate.js"
+            ],
+            "shim": {
+                "deps": ["jquery"]
+            }
+        }
+    }
+}
