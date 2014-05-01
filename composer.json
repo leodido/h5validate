@@ -1,11 +1,11 @@
 {
     "name": "components/h5validate",
-    "description": "jQuery JavaScript Library",
+    "description": "Shim repository for the h5validate jQuery plugin",
     "type": "component",
     "homepage": "http://github.com/leodido/h5validate",
     "license": "MIT",
     "support": {
-        "wiki": "http://ericleads.com/h5validate/",
+        "wiki": "http://ericleads.com/h5validate",
         "source": "http://github.com/dilvie/h5Validate"
     },
     "authors": [

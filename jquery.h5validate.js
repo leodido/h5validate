@@ -1,5 +1,5 @@
 /**
- * h5Validate
+ * h5validate
  * @version v0.9.0
  * Using semantic versioning: http://semver.org/
  * @author Eric Hamilton http://ericleads.com/
