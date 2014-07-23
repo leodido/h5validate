@@ -24,9 +24,9 @@ To install with [composer](http://packagist.org/packages/components/h5validate) 
 
 ### Using [component](http://component.io)
     
-To install as a [component](https://github.com/component/component) just run `component install components/h5validate`.
+To install as a [component](https://github.com/component/component) just run `component install leodido/h5validate`.
 
-Or add `components/h5validate` to the dependencies element into your `component.json`.
+Or add `leodido/h5validate` to the dependencies element into your `component.json`.
 
 ### Using [bower](http://bower.io)
 
