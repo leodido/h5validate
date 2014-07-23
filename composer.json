@@ -3,7 +3,15 @@
     "description": "Shim repository for the h5validate jQuery plugin",
     "type": "component",
     "homepage": "http://github.com/leodido/h5validate",
-    "license": "MIT",
+    "license": "GPL",
+    "keywords": [
+      "jquery",
+      "form",
+      "validation",
+      "input",
+      "h5validate",
+      "component"
+    ],
     "support": {
         "wiki": "http://ericleads.com/h5validate",
         "source": "http://github.com/dilvie/h5Validate"
@@ -27,7 +35,7 @@
     "extra": {
         "component": {
             "scripts": [
-                "jquery.h5validate.js"
+                "h5validate.js"
             ],
             "shim": {
                 "deps": ["jquery"]

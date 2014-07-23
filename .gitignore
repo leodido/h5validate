@@ -1,0 +1,17 @@
+# Application
+composer.lock
+composer.phar
+vendor/
+node_modules/
+bower_components/
+public/_/
+
+# IDEs
+.idea/
+.settings/
+.project/
+.buildpath/
+
+# Miscellaneous
+.DS_Store
+*~

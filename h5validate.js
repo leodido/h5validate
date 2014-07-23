@@ -1,8 +1,9 @@
 /**
  * h5validate
  * @version v0.9.0
- * Using semantic versioning: http://semver.org/
- * @author Eric Hamilton http://ericleads.com/
+ * Using semantic versioning: http://semver.org
+ * @author Eric Hamilton http://ericleads.com
+ * @maintainer Leo Di Donato http://github.com/leodido
  * @copyright 2010 - 2012 Eric Hamilton
  * Dual licensed under the MIT and GPL licenses:
  * http://www.opensource.org/licenses/mit-license.php
@@ -11,22 +12,24 @@
  * Developed under the sponsorship of RootMusic, Zumba Fitness, LLC, and Rese Property Management
  */
 
-/*global jQuery, window, console */
+/* global jquery, window, console */
 (function ($) {
     'use strict';
-    var console = window.console || function () {},
-        h5 = { // Public API
-            defaults : {
+    var console = window.console || function () {
+            },
+        h5 = {
+            // Public API
+            defaults: {
                 debug: false,
 
                 RODom: false,
 
-                // HTML5-compatible validation pattern library that can be extended and/or overriden.
-                patternLibrary : {
-                    //** TODO: Test the new regex patterns. Should I apply these to the new input types?
-                    
-                    // **TODO: password
-                    
+                // HTML5-compatible validation pattern library that can be extended and/or overriden
+                patternLibrary: {
+                    // TODO: Test the new regex patterns. Should I apply these to the new input types?
+
+                    // TODO: password
+
                     phone: /([\+][0-9]{1,3}([ \.\-])?)?([\(][0-9]{1,6}[\)])?([0-9A-Za-z \.\-]{1,32})(([A-Za-z \:]{1,11})?[0-9]{1,4}?)/,
 
                     // Shamelessly lifted from Scott Gonzalez via the Bassistance Validation plugin http://projects.scottsplayground.com/email_address_validation/
@@ -42,23 +45,23 @@
                     dateISO: /\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2}/,
 
                     alpha: /[a-zA-Z]+/,
-                    
+
                     alphaNumeric: /\w+/,
-                    
+
                     integer: /-?\d+/
                 },
 
-                // The prefix to use for dynamically-created class names.
+                // The prefix to use for dynamically-created class names
                 classPrefix: 'h5-',
 
-                errorClass: 'ui-state-error', // No prefix for these.
-                validClass: 'ui-state-valid', // "
-                activeClass: 'active', // Prefix will get prepended.
+                errorClass: 'ui-state-error', // No prefix for these
+                validClass: 'ui-state-valid',
+                activeClass: 'active', // Prefix will get prepended
                 requiredClass: 'required',
                 requiredAttribute: 'required',
                 patternAttribute: 'pattern',
 
-                // Attribute which stores the ID of the error container element (without the hash).
+                // Attribute which stores the ID of the error container element (without the hash)
                 errorAttribute: 'data-h5-errorid',
 
                 // Events API
@@ -66,7 +69,7 @@
                     'validate': true
                 },
 
-                // Setup KB event delegation.
+                // Setup KB event delegation
                 kbSelectors: ':input:not(:button):not(:disabled):not(.novalidate)',
                 focusout: true,
                 focusin: false,
@@ -74,7 +77,7 @@
                 keyup: false,
                 activeKeyup: true,
 
-                // Setup mouse event delegation.
+                // Setup mouse event delegation
                 mSelectors: '[type="range"]:not(:disabled):not(.novalidate), :radio:not(:disabled):not(.novalidate), :checkbox:not(:disabled):not(.novalidate), select:not(:disabled):not(.novalidate), option:not(:disabled):not(.novalidate)',
                 click: true,
 
@@ -95,15 +98,17 @@
                 validateOnSubmit: true,
 
                 // Callback stubs
-                invalidCallback: function () {},
-                validCallback: function () {},
+                invalidCallback: function () {
+                },
+                validCallback: function () {
+                },
 
                 // Elements to validate with allValid (only validating visible elements)
                 allValidSelectors: ':input:visible:not(:button):not(:disabled):not(.novalidate)',
 
                 // Mark field invalid.
-                // ** TODO: Highlight labels
-                // ** TODO: Implement setCustomValidity as per the spec:
+                // TODO: Highlight labels
+                // TODO: Implement setCustomValidity as per the spec:
                 // http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#dom-cva-setcustomvalidity
                 markInvalid: function markInvalid(options) {
                     var $element = $(options.element),
@@ -147,11 +152,9 @@
                 }
             }
         },
-
         // Aliases
         defaults = h5.defaults,
         patternLibrary = defaults.patternLibrary,
-
         createValidity = function createValidity(validity) {
             return $.extend({
                 customError: validity.customError || false,
@@ -165,13 +168,12 @@
                 valueMissing: validity.valueMissing || false
             }, validity);
         },
-
         methods = {
             /**
              * Check the validity of the current field
              * @param  {object}  settings   instance settings
              * @param  {object}  options
-             *			.revalidate - trigger validation function first?
+             *            .revalidate - trigger validation function first?
              * @return {Boolean}
              */
             isValid: function (settings, options) {
@@ -184,7 +186,7 @@
                     $this.trigger('validate');
                 }
 
-                return $this.data('valid'); // get the validation result
+                return $this.data('valid'); // Get the validation result
             },
             allValid: function (config, options) {
                 var valid = true,
@@ -213,13 +215,13 @@
 
                 // Filter radio buttons with the same name and keep only one,
                 // since they will be checked as a group by isValid()
-                $filteredFields = $allFields.filter(function(index) {
+                $filteredFields = $allFields.filter(function (index) {
                     var name;
 
-                    if(this.tagName === "INPUT"
+                    if (this.tagName === "INPUT"
                         && this.type === "radio") {
                         name = this.name;
-                        if(radioNames[name] === true) {
+                        if (radioNames[name] === true) {
                             return false;
                         }
                         radioNames[name] = true;
@@ -229,7 +231,7 @@
 
                 $filteredFields.each(function () {
                     var $this = $(this);
-                    valid = $this.h5Validate('isValid', options) && valid;
+                    valid = $this.h5validate('isValid', options) && valid;
                 });
 
                 $this.trigger('formValidated', {valid: valid, elements: formValidity});
@@ -256,7 +258,7 @@
                     errorClass = settings.errorClass,
                     validClass = settings.validClass,
                     errorIDbare = $this.attr(settings.errorAttribute) || false, // Get the ID of the error element.
-                    errorID = errorIDbare ? '#' + errorIDbare.replace(/(:|\.|\[|\])/g,'\\$1') : false, // Add the hash for convenience. This is done in two steps to avoid two attribute lookups.
+                    errorID = errorIDbare ? '#' + errorIDbare.replace(/(:|\.|\[|\])/g, '\\$1') : false, // Add the hash for convenience. This is done in two steps to avoid two attribute lookups.
                     required = false,
                     validity = createValidity({element: this, valid: true}),
                     $checkRequired = $('<input required>'),
@@ -321,7 +323,7 @@
 
                 // If it's a radio button, also validate the other radio buttons with the same name
                 // (while making sure the call is not recursive)
-                if($radiosWithSameName !== null
+                if ($radiosWithSameName !== null
                     && settings.alreadyCheckingRelatedRadioButtons !== true) {
 
                     settings.alreadyCheckingRelatedRadioButtons = true;
@@ -334,7 +336,6 @@
 
                 }
             },
-
             /**
              * Take the event preferences and delegate the events to selected
              * objects.
@@ -357,7 +358,7 @@
                 // key = 0;
                 for (key in events) {
                     if (events.hasOwnProperty(key)) {
-                        $(element).delegate(selectors, events[key] + '.h5Validate', validate);
+                        $(element).delegate(selectors, events[key] + '.h5validate', validate);
                     }
                 }
                 return element;
@@ -390,7 +391,7 @@
                     .attr('novalidate', 'novalidate')
                     .submit(checkValidityOnSubmitHandler);
 
-                $forms.find("input[formnovalidate][type='submit']").click(function(){
+                $forms.find("input[formnovalidate][type='submit']").click(function () {
                     $(this).closest("form").unbind('submit', checkValidityOnSubmitHandler);
                 });
 
@@ -416,7 +417,6 @@
                 });
             }
         },
-
         /**
          * Event handler for the form submit event.
          * When settings.submit is enabled:
@@ -428,26 +428,25 @@
          *
          * @returns {object} undefined if no validation was done, true if validation passed, false if validation didn't.
          */
-        checkValidityOnSubmitHandler = function(evt) {
-
+        checkValidityOnSubmitHandler = function (evt) {
             var $this,
                 settings = getInstance.call(this),
                 allValid;
 
-            if(settings.submit !== true) {
+            if (settings.submit !== true) {
                 return;
             }
 
             $this = $(this);
-            allValid = $this.h5Validate('allValid', { revalidate: settings.validateOnSubmit === true });
+            allValid = $this.h5validate('allValid', {revalidate: settings.validateOnSubmit === true});
 
-            if(allValid !== true) {
+            if (allValid !== true) {
                 evt.preventDefault();
 
-                if(settings.focusFirstInvalidElementOnSubmit === true){
+                if (settings.focusFirstInvalidElementOnSubmit === true) {
                     var $invalid = $(settings.allValidSelectors, $this)
-                        .filter(function(index){
-                            return $(this).h5Validate('isValid', { revalidate: false }) !== true;
+                        .filter(function (index) {
+                            return $(this).h5validate('isValid', {revalidate: false}) !== true;
                         });
 
                     $invalid.first().focus();
@@ -456,9 +455,7 @@
 
             return allValid;
         },
-
         instances = [],
-
         buildSettings = function buildSettings(options) {
             // Combine defaults and options to get current settings.
             var settings = $.extend({}, defaults, options, methods),
@@ -471,21 +468,18 @@
                 el: this
             });
         },
-
         getInstance = function getInstance() {
             var $parent = $(this).closest('[data-h5-instanceId]');
             return instances[$parent.attr('data-h5-instanceId')];
         },
-
         setInstance = function setInstance(settings) {
             var instanceId = instances.push(settings) - 1;
             if (settings.RODom !== true) {
                 $(this).attr('data-h5-instanceId', instanceId);
             }
-            $(this).trigger('instance', { 'data-h5-instanceId': instanceId });
+            $(this).trigger('instance', {'data-h5-instanceId': instanceId});
         };
-
-    $.h5Validate = {
+    $.h5validate = {
         /**
          * Take a map of pattern names and HTML5-compatible regular
          * expressions, and add them to the patternLibrary. Patterns in
@@ -530,9 +524,8 @@
             $(selector).data('regex', re);
         }
     };
-
-    $.fn.h5Validate = function h5Validate(options) {
-        var	action,
+    $.fn.h5validate = function h5validate(options) {
+        var action,
             args,
             settings;
 

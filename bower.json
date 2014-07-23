@@ -1,0 +1,32 @@
+{
+  "name": "h5validate",
+  "main": "h5validate.js",
+  "version": "0.9.0",
+  "homepage": "https://github.com/leodido/h5validate",
+  "authors": [
+    { "name": "Eric Elliot", "homepage": "http://ericleads.com" },
+    { "name": "Leo Di Donato", "homepage": "http://github.com/leodido", "email": "leodidonato@gmail.com" }
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "description": "Shim repository for the h5validate jQuery plugin",
+  "keywords": [
+    "validation",
+    "jquery",
+    "form",
+    "input",
+    "h5validate"
+  ],
+  "license": "GPL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">=1.9.0"
+  }
+}

@@ -1,17 +1,23 @@
 {
   "name": "h5validate",
-  "repo": "components/h5validate",
+  "repo": "leodido/h5validate",
   "version": "0.9.0",
-  "description": "h5validate component",
+  "homepage": "http://github.com/leodido/h5validate",
+  "description": "Repository for the h5validate jQuery component",
   "keywords": [
     "jquery",
+    "form",
     "validation",
+    "input",
     "h5validate",
     "component"
   ],
-  "main": "jquery.h5validate.js",
+  "main": "h5validate.js",
   "scripts": [
-    "jquery.h5validate.js"
+    "h5validate.js"
   ],
-  "license": "MIT"
+  "license": "GPL",
+  "dependencies": {
+    "component/jquery": "*"
+  }
 }

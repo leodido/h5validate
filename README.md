@@ -3,14 +3,36 @@ h5validate
 
 Shim repository for the [h5validate](https://github.com/dilvie/h5Validate) jQuery plugin.
 
-Package Managers
-----------------
+Original demo page can be found [here](http://ericleads.com/h5validate/).
 
-* [Component](https://github.com/component/component)
-    - **components/h5validate**
+_Note: function `h5Validate` as been lowercased (i.e., `h5validate`)._
+
+Installation
+------------
+
+### Using [composer](https://github.com/composer/composer)
     
-* [Composer](http://packagist.org/packages/components/angular.js)
-    - **components/h5validate**
+To install with [composer](http://packagist.org/packages/components/h5validate) add `components/h5validate` to your `composer.json`. E.g.,
+
+```
+{
+  "require": {
+    "components/h5validate": "*"
+  }
+}
+```
+
+### Using [component](http://component.io)
+    
+To install as a [component](https://github.com/component/component) just run `component install components/h5validate`.
+
+Or add `components/h5validate` to the dependencies element into your `component.json`.
+
+### Using [bower](http://bower.io)
+
+To install with [bower]() just run `bower install h5validate`.
+
+Or add `h5validate` to the dependencies element into you `bower.json`.
 
 ---
 
